@@ -90,7 +90,7 @@
     "type":"single",
     "Answer":"C"
   },{
-    "Question": "客戶可使用以下哪些方法使用AWS服務？",
+    "Question": "客戶可使用以下哪些方法使用AWS服務？ (複選)",
     "optionA": "命令列介面",
     "optionB": "內部部署",
     "optionC": "軟體開發套件",
