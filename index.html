@@ -1,122 +1,197 @@
-<!doctype html>
-<html lang="zn">
-
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <style>
-        button {
-            display: inline-block;
-            color: #fff;
-            border-radius: 4px;
-            border: none;
-            cursor: pointer;
-            outline: none;
-            padding: 10px 20px;
-            margin-bottom: 10px;
-        }
-
-        button:hover {
-            color: #ddd;
-        }
-
-        .showRope {
-            background-color: #ff0081;
-            box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
-        }
-
-        .hideRope {
-            background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-            margin-left: 20px;
-            box-shadow: 0 2px 25px rgba(22, 217, 227, 0.5);
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCP Test</title>
 </head>
+<style>
+    html{
+        font-size: 16px;
+        font-family: "Microsoft JhengHei";        
+        text-align: center;
+    }
+    
+    body{
+        width:80%;
+        max-width: 800px;
+        margin: 2% auto;
+        line-height: 2rem;
+        background-color: #74aec7;
+        
+    }
 
+    #data{
+        text-align: left;
+        width: 100%;
+    }
+    #submit{
+        margin: 10% auto;
+        width: 150px;
+        background-color: #F8FA9B;
+        border: #838526 2px solid;
+        border-radius: 60px;
+        cursor: pointer;
+    }
+
+    .Wcontent{
+        background-color: #fff;
+        padding: 2% 10%;
+        border-radius: 60px;
+    }
+
+    #TotalQ{
+        font-size: 2.4rem;
+        color: #5FC3E0;
+        font-weight: bold;
+        padding: 5% 0 2% 0;
+    }
+
+    .EndWord{
+        text-align: center !important;
+        color: #FBA523;
+        font-weight: bold;
+        font-size: 2.2rem;
+        padding-top: 10%;
+        line-height: 3.2rem;
+    }
+</style>
 <body>
-    <div id="px-render"></div>
+    <div class="Wcontent">
+        <div id="TotalQ"></div>
+        <div id="data"></div>
+        <div id="result"></div>
+        <div id='submit'>送出</div>
+    </div>
+    
+    <script>
+        let Qnum = 0;
+        let Testdata;
+        let totalNum=10;
+        let userScore=0;
+
+        async function fetchData() {
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                Testdata = await response.json(); // 確保 Testdata 被賦值
+
+                Testdata.sort(function(){return Math.random()>0.5?-1:1;});
+                QuestionSet();
+                
+            } catch (error) {
+                console.error('Fetch error:', error);
+            }
+        }
+
+        fetchData(); 
+        
+        function QuestionSet(){
+            document.getElementById('TotalQ').innerHTML=(Qnum+1)+' / '+totalNum;
+            
+            var opset = `
+                    <label><input type="checkbox" name="answer" value="A" class="single-checkbox"> ${Testdata[Qnum].optionA}</label><br>
+                    <label><input type="checkbox" name="answer" value="B" class="single-checkbox"> ${Testdata[Qnum].optionB}</label><br>
+                    <label><input type="checkbox" name="answer" value="C" class="single-checkbox"> ${Testdata[Qnum].optionC}</label><br>
+                    <label><input type="checkbox" name="answer" value="D" class="single-checkbox"> ${Testdata[Qnum].optionD}</label>
+                `;
+
+                if (Testdata[Qnum].type != 'single') {
+                    opset = opset + `<br><label><input type="checkbox" name="answer" value="E" class="single-checkbox"> ${Testdata[Qnum].optionE}</label>`;
+                }
+
+                document.getElementById('data').innerHTML = `
+                    <p>Q: ${Testdata[Qnum].Question}</p>
+                    <div>${opset}</div>
+                `;
+
+                // 重新綁定事件，確保新的 checkbox 會有單選行為
+                document.querySelectorAll('.single-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('change', () => {
+                        if (Testdata[Qnum].type == 'single') {
+                            if (checkbox.checked) {
+                                document.querySelectorAll('.single-checkbox').forEach(cb => {
+                                    if (cb !== checkbox) cb.checked = false; // 其他選項變為未選中
+                                });
+                            }
+                        }
+                    });
+                });
+        }
+
+        document.getElementById('submit').addEventListener('click', () => {
+            console.log('Qnum=',Qnum)
+            document.getElementById('result').innerHTML='';
+            var selectedOptions = Array.from(document.querySelectorAll('input[name="answer"]:checked'))
+                                         .map(option => option.value);
+
+            if (selectedOptions.length > 0) {
+
+                document.querySelectorAll('.single-checkbox').forEach(cb => {
+                    cb.disabled = true; 
+                });
+
+                if(document.getElementById('submit').textContent=='送出'){
+                    var result=selectedOptions;
+                    var st='';
+                    if(Testdata[Qnum].type != 'single'){
+                        result = selectedOptions.join('、');
+                    }
+
+                    if(Testdata[Qnum].Answer==result){
+                        st="<span style='color:#00C300; font-size:2rem;'>√</span> "
+                        userScore+=1;
+                    }else{
+                        st="<span style='color:#C42B1C; font-size:2rem;'>×</span> "
+                    }      
+
+                    document.getElementById('result').innerHTML += st+'解答:'+Testdata[Qnum].Answer;
+
+                    if(Qnum>=totalNum-1){
+                        document.getElementById('submit').innerHTML='結果';
+                    }else{
+                        document.getElementById('submit').innerHTML='下一題';
+                    }
+                }else if(document.getElementById('submit').textContent=='下一題'){
+                    Qnum+=1
+                    QuestionSet()
+                    document.getElementById('submit').innerHTML='送出';
+                    document.getElementById('result').innerHTML='';
+                    document.querySelectorAll('.single-checkbox').forEach(cb => {
+                    cb.disabled = false; // 其他選項變為未選中
+                });
+                    
+                }else if(document.getElementById('submit').textContent=='結果'){
+                    var wordtoU='';
+                    if(userScore==totalNum){
+                        wordtoU='矮唷😏!全對耶💯!真的還假的啦!穩過了啦😀😀😀😀😀!!';
+                    }else if(userScore>=totalNum*0.8 && userScore!=totalNum){
+                        wordtoU='可以啦!通過了啦過了啦~😎😎😎';
+                    }else if(userScore>=totalNum*0.7 && userScore<=80){
+                        wordtoU='唷~小心喔~危險邊緣~😈🤜🤛😉';
+                    }else{
+                        wordtoU='完蛋了你!!3000多飛了!🥴🤯💔💸';
+                    }
+
+
+                    
+                    document.getElementById('TotalQ').innerHTML='答對題數:'+userScore;
+                    document.getElementById('data').innerHTML=wordtoU;
+                    document.getElementById('data').classList.add("EndWord");
+                    document.getElementById('submit').innerHTML='我要重測啦!';
+                    document.getElementById('result').innerHTML='';
+                }
+
+            }else if(Qnum+1>=totalNum){
+                location.reload() ;
+            } 
+            else {
+                document.getElementById('result').innerHTML='<span style="color:red;">你有選擇答案嗎??????</span>';
+            }
+        });
+
+    </script>
 </body>
-
-
-
-<script src="https://www.kkkk1000.com/js/pixi4.8.2.js"></script>
-<script>
-    //创建一个 Pixi应用 需要的一些参数
-    let option = {
-        width: 640,
-        height: 360,
-    }
-    //创建一个 Pixi应用
-    let app = new PIXI.Application(option);
-    //获取舞台
-    let stage = app.stage;
-    //获取渲染器
-    let renderer = app.renderer;
-    let playground = document.getElementById('px-render');
-    //把 Pixi 创建的 canvas 添加到页面上
-    playground.appendChild(renderer.view);
-    //绳段数
-    let numberOfSegments = 20;
-    //图片宽度
-    let imageWidth = 600;
-    //一段长度
-    let ropeLength = imageWidth / numberOfSegments;
-    //保存 Point 对象的数组
-    let points = [];
-    for (let i = 0; i < numberOfSegments; i++) {
-        points.push(new PIXI.Point(i * ropeLength, 0));
-    }
-
-    //创建 Rope 类型的对象
-    let snake = new PIXI.mesh.Rope(PIXI.Texture.fromImage('https://www.kkkk1000.com/images/learnPixiJS-VisualEffects/snake.png'), points);
-    snake.x = 0;
-    //创建一个容器
-    let snakeContainer = new PIXI.Container();
-    //把创建的 Rope 类型的对象添加到容器中
-    snakeContainer.addChild(snake);
-    //把容器添加到舞台上
-    stage.addChild(snakeContainer);
-    //设置容器位置
-    snakeContainer.position.set(10, 150);
-
-    //创建一个图形对象
-    let g = new PIXI.Graphics();
-    g.x = snake.x;
-    g.y = snake.y;
-    //把图形对象添加到容器中
-    snakeContainer.addChild(g);
-
-
-    //实现动画
-    let count = 0;
-    app.ticker.add(function () {
-        count += 0.1;
-        //通过 for 循环将数组中的每个点按照椭圆形的轨迹移动&#xff0c;形成波浪效果。
-        for (let i = 0; i < points.length; i++) {
-            points[i].y = Math.sin((i * 0.5) + count) * 30;
-            points[i].x = i * ropeLength + Math.cos((i * 0.3) + count) * numberOfSegments;
-
-        }
-        renderPoints();
-    });
-
-    function renderPoints() {
-        g.clear();
-        g.lineStyle(2, 0xffc2c2);
-        g.moveTo(points[0].x, points[0].y);
-
-        for (let i = 1; i < points.length; i++) {
-            g.lineTo(points[i].x, points[i].y);
-        }
-
-        for (let i = 1; i < points.length; i++) {
-            g.beginFill(0xff0022);
-            g.drawCircle(points[i].x, points[i].y, 5);
-            g.endFill();
-        }
-    }
-
-    let showRope = document.querySelector(" .showRope"); let hideRope = document.querySelector(".hideRope");
-    showRope.addEventListener("click", function () { g.visible = true; }); hideRope.addEventListener("click", function () { g.visible = false; });</script>
-
 </html>

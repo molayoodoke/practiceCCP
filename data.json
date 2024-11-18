@@ -1,0 +1,105 @@
+[{
+    "Question": "下列哪一個服務會因為網路流量增加而自動擴展？",
+    "optionA": "AWS CodePipeline",
+    "optionB": "Elastic Load Balancing",
+    "optionC": "Amazon EBS",
+    "optionD": "AWS Direct Connect",
+    "optionE": "",
+    "type":"single",
+    "Answer":"B"
+  },{
+    "Question": "AWS中敏捷性的例子為下列何者？",
+    "optionA": "可存取多種實例類型",
+    "optionB": "可管理服務",
+    "optionC": "可使用「合併帳單」來將多個帳戶的帳單合而為一",
+    "optionD": "減少新計算資源的獲取時間",
+    "optionE": "",
+    "type":"single",
+    "Answer":"D"
+  },{
+    "Question": "下列哪項是AWS Cloud架構的設計原則？",
+    "optionA": "使用單點故障系統",
+    "optionB": "使用鬆耦合系統",
+    "optionC": "使用單體式設計",
+    "optionD": "垂直擴展",
+    "optionE": "",
+    "type":"single",
+    "Answer":"B"
+  }
+  ,{
+    "Question": "在設計雲端應用程序時下列哪一個是重要的設計原則？",
+    "optionA": "使用多個可用區",
+    "optionB": "使用緊耦合系統",
+    "optionC": "使用開放原始碼軟體",
+    "optionD": "提供特大的容量",
+    "optionE": "",
+    "type":"single",
+    "Answer":"A"
+  },{
+    "Question": "流量或數據的增長而又不降低性能符合哪種雲架構原則？",
+    "optionA": "平行思考",
+    "optionB": "具有彈性",
+    "optionC": "應用程序解耦",
+    "optionD": "為失敗而設計(Design for failure)",
+    "optionE": "",
+    "type":"single",
+    "Answer":"B"
+  },{
+    "Question": "公司將資料從本地移至AWS雲。請問這前後經濟差距為何？",
+    "optionA": "從可變營業費用轉為前期資本支出",
+    "optionB": "從前期資本支轉轉為可變資本支出",
+    "optionC": "從可變資本支出轉為可變營業費用",
+    "optionD": "消除前期資本支出和可變的營業費用",
+    "optionE": "",
+    "type":"single",
+    "Answer":"C"
+  },{
+    "Question": "下列哪些AWS特性可讓客戶的應用程式具有成本效益？(選擇兩項)",
+    "optionA": "高可用性",
+    "optionB": "共同責任模型",
+    "optionC": "具有彈性",
+    "optionD": "即付即用(Pay-as-you-go)",
+    "optionE": "可靠性",
+    "type":"Multiple",
+    "Answer":"C、D"
+  },{
+    "Question": "要架構大型的應用程序時，建議使用以下哪兩種設計原則？(選擇兩項)",
+    "optionA": "使用手動監控",
+    "optionB": "使用固定的伺服器",
+    "optionC": "使用鬆耦合系統",
+    "optionD": "依靠單一的架構",
+    "optionE": "設計時注意可擴展性",
+    "type":"Multiple",
+    "Answer":"C、E"
+  },{
+    "Question": "下列何者為AWS Cloud的優勢？(選擇兩項)",
+    "optionA": "無限制的運行時間",
+    "optionB": "具有彈性",
+    "optionC": "敏捷",
+    "optionD": "主機代管",
+    "optionE": "資本支出",
+    "type":"Multiple",
+    "Answer":"B、C"
+  },{
+    "Question": "AWS如何縮短提供資源的時間？",
+    "optionA": "它為資源提供了線上的IT票務平台(IT ticketing platform)",
+    "optionB": "它支持自動的代碼驗證服務",
+    "optionC": "它可用程式碼管理現有資源",
+    "optionD": "自動化對公司IT供應商的資源請求過程",
+    "optionE": "",
+    "type":"single",
+    "Answer":"C"
+  },{
+    "Question": "客戶可使用以下哪些方法使用AWS服務？",
+    "optionA": "命令列介面",
+    "optionB": "內部部署",
+    "optionC": "軟體開發套件",
+    "optionD": "軟體即服務(SaaS)",
+    "optionE": "混合雲端",
+    "type":"Multiple",
+    "Answer":"A、C"
+  }
+] 
+
+
+
