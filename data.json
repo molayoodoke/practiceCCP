@@ -47,7 +47,7 @@
   },{
     "Question": "公司將資料從本地移至AWS雲。請問這前後經濟差距為何？",
     "optionA": "從可變營業費用轉為前期資本支出",
-    "optionB": "從前期資本支轉轉為可變資本支出",
+    "optionB": "從前期資本支出轉為可變資本支出",
     "optionC": "從可變資本支出轉為可變營業費用",
     "optionD": "消除前期資本支出和可變的營業費用",
     "optionE": "",
@@ -98,8 +98,238 @@
     "optionE": "混合雲端",
     "type":"Multiple",
     "Answer":"A、C"
+  },{
+    "Question":"下列哪個服務是由客戶維護操作系統配置，安全修補程序及設定網路？",
+    "optionA":"Amazon RDS",
+    "optionB":"Amazon EC2",
+    "optionC":"Amazon ElastiCache",
+    "optionD":"Amazon Fargate",
+    "optionE":"",
+    "type":"single",
+    "Answer":"B"
+  },{
+    "Question":"下列哪個AWS服務可在有需求時手動啟動實例？",
+    "optionA":"Amazon EBS",
+    "optionB":"Amazon S3",
+    "optionC":"Amazon EC2",
+    "optionD":"Amazon ECS",
+    "optionE": "",
+    "type":"single",
+    "Answer":"C"
+  },{
+    "Question":"在EC2運行的Web伺服器訪問在公司數據中心中運行的舊版應用程序，以上動作稱為？",
+    "optionA":"雲原生(Cloud-native)",
+    "optionB":"合作夥伴網絡",
+    "optionC":"混合雲端架構",
+    "optionD":"基礎設施即服務(IaaS)",
+    "optionE": "",
+    "type":"single",
+    "Answer":"C"},
+  {
+    "Question":"下列何種功能可以啟動預先配置好的Amazon EC2實例？",
+    "optionA":"Amazon EBS",
+    "optionB":"Amazon Machine Image",
+    "optionC":"Amazon EC2 Systems Manager",
+    "optionD":"Amazon AppStream2.0",
+    "optionE": "",
+    "type":"single",
+    "Answer":"B"
+  },{
+    "Question":"下列何種AWS 服務可以在有需求時手動起用實例？",
+    "optionA":"Amazon EBS",
+    "optionB":"Amazon S3",
+    "optionC":"Amazon EC2",
+    "optionD":"Amazon ECS",
+    "optionE": "",
+    "type":"single",
+    "Answer":"C"
+  },{
+    "Question":"一家公司正在考慮要用全託管的方式建立資料庫，並且每晚必需要關閉進行維護和節省成本，請問公司應使用以下哪種服務？",
+    "optionA":"AWS Redshift",
+    "optionB":"AWS DynamoDB",
+    "optionC":"有虛擬機的AWS EC2",
+    "optionD":"有AWS EBS的AWS EC2",
+    "optionE": "",
+    "type":"single",
+    "Answer":"D"
+  },{
+    "Question":"哪項服務可讓客戶實質訪問他們儲存在裡面的物件，並且提供生命週期及版本控制服務？",
+    "optionA":"Amazon Glacier",
+    "optionB":"Amazon storage Gateway",
+    "optionC":"Amazon S3",
+    "optionD":"Amazon EBS",
+    "optionE": "",
+    "type":"single",
+    "Answer":"C"
+  },{
+    "Question":"下列何種服務可以保留資料庫備份並且可立即檢索？",
+    "optionA":"Amazon S3",
+    "optionB":"Amazon Glacier",
+    "optionC":"Amazon EBS",
+    "optionD":"Amazon EC2 Instance Store",
+    "optionE": "",
+    "type":"single",
+    "Answer":"A"
+  },{
+    "Question":"下列何種儲存服務可以用低成本的方式託管靜態網站？",
+    "optionA":"Amazon Glacier",
+    "optionB":"Amazon DynamoDB",
+    "optionC":"Amazon Elastic File System (Amazon EFS)",
+    "optionD":"Amazon Simple Storage Service (Amazon S3)",
+    "optionE": "",
+    "type":"single",
+    "Answer":"D"
+  },{
+    "Question":"下列何種服務可以保留資料庫備份並且可立即檢索？",
+    "optionA":"Amazon S3",
+    "optionB":"Amazon Glacier",
+    "optionC":"Amazon EBS",
+    "optionD":"Amazon EC2 Instance Store",
+    "optionE": "",
+    "type":"single",
+    "Answer":"A"
+  },{
+    "Question":"應該使用AWS的何種服務進行長期且低成本的數據備份服務？",
+    "optionA":"Amazon RDS",
+    "optionB":"Amazon Glacier",
+    "optionC":"Amazon Snowball",
+    "optionD":"Amazon EBS",
+    "optionE": "",
+    "type":"single",
+    "Answer":"B"
+  },{
+    "Question":"下列何種服務可以提供幾乎無限量的高度耐用儲存服務？",
+    "optionA":"Amazon Redshift",
+    "optionB":"Amazon Elastic File System (Amazon EFS)",
+    "optionC":"Amazon Elastic Container Service (Amazon ECS)",
+    "optionD":"Amazon S3",
+    "optionE": "",
+    "type":"single",
+    "Answer":"D"
+  },{
+    "Question":"以下何者提供混合雲端儲存服務，可以為內部部署的應用程式提供AWS雲端存取？",
+    "optionA":"Amazon Glacier",
+    "optionB":"AWS Snowball",
+    "optionC":"AWS Storage Gateway",
+    "optionD":"Amazon Elastic Block Storage (Amazon EBS)",
+    "optionE": "",
+    "type":"single",
+    "Answer":"C"
+  },{
+    "Question":"以下哪些為Amazon S3的特徵？(選擇兩項)",
+    "optionA":"全球性的文件系統",
+    "optionB":"物件儲存",
+    "optionC": "本地文件儲存",
+    "optionD":"網路檔案系統",
+    "optionE": "用的儲存系統",
+    "type":"Multiple",
+    "Answer":"B、E"
+  },{
+    "Question":"下列有關區域、可用區域、節點之關係，何者正確？",
+    "optionA":"數據中心包含區域",
+    "optionB":"區域包含可用區域",
+    "optionC":"可用區域包含節點",
+    "optionD":"節點包含區域",
+    "optionE": "",
+    "type":"single",
+    "Answer":"B"
+  },{
+    "Question":"在多個可用區之間分配工作負載是下列何種雲端架構設計原則？",
+    "optionA":"自動化",
+    "optionB":"敏捷性設計",
+    "optionC":"為失敗而設計(Design for failure)",
+    "optionD":"彈性",
+    "optionE": "",
+    "type":"single",
+    "Answer":"D"
+  },{
+    "Question":"下列哪一個是節點的特徵？",
+    "optionA":"自動將EC2託管在離客戶更近的區域",
+    "optionB":"可降低延遲及提升服務性能",
+    "optionC":"用來快取經常異動的資料，而不需要連上原來的伺服器。",
+    "optionD":"每天更新數據",
+    "optionE": "",
+    "type":"single",
+    "Answer":"B"
+  },{
+    "Question":"下列哪一個是彼此之間是由一個或多個離散的數據中心透過低延遲的方式連結而成？",
+    "optionA":"可用區",
+    "optionB":"節點",
+    "optionC":"地區",
+    "optionD":"私人網路",
+    "optionE": "",
+    "type":"single",
+    "Answer":"B"
+  },{
+    "Question":"AWS的哪個功能可滿足客戶低延遲的需求？",
+    "optionA":"容錯能力",
+    "optionB":"遍佈全球的可用區域",
+    "optionC":"即付即用定價",
+    "optionD":"高可用性",
+    "optionE": "",
+    "type":"single",
+    "Answer":"B"
+  },{
+    "Question":"AWS在全球擁有很多區域，請問區域為？",
+    "optionA":"敏捷性",
+    "optionB":"全球基礎設施",
+    "optionC":"彈性",
+    "optionD":"即付即用定價",
+    "optionE": "",
+    "type":"single",
+    "Answer":"B"
+  },{
+    "Question":"下列何者是使用低延遲網路來連結AWS區域中的多個位置？",
+    "optionA":"AWS Direct Connects",
+    "optionB":"AWS VPCs",
+    "optionC":"節點",
+    "optionD":"可用區域",
+    "optionE": "",
+    "type":"single",
+    "Answer":"D"
+  },{
+    "Question":"AWS端點(節點)有什麼用途？(兩個選項)",
+    "optionA":"託管應用",
+    "optionB":"使內容更貼近用戶",
+    "optionC":"運行NoSQL資料庫緩存服務",
+    "optionD":"通過緩存減少服務器上的流量",
+    "optionE": "向最終用戶發送通知消息",
+    "type":"Multiple",
+    "Answer":"B、D"
+  },{
+    "Question":"假設客戶現在要找一個AWS區域來部署新的應用程式，請問以下哪些因素會影響客戶的決定？(選擇兩項)",
+    "optionA":"用戶使用較不會延遲",
+    "optionB":"應用程式顯示用戶當地的語言",
+    "optionC":"自己的數據是否遵守當地的法律",
+    "optionD":"氣候炎熱國家的冷卻成本",
+    "optionE": "選擇客戶所在位置並進行實地訪問",
+    "type":"Multiple",
+    "Answer":"A、C"
+  },{
+    "Question":"以下哪個AWS服務允許將Amazon VPC連結到本地的數據中心？",
+    "optionA":"AWS VPN",
+    "optionB":"mazon Redshift",
+    "optionC":"API Gateway",
+    "optionD":"Amazon Direct Connect",
+    "optionE": "",
+    "type":"single",
+    "Answer":"D"
+  },{
+    "Question":"可以通過Amazon VPC的儀表板設定下列哪些功能？(選擇兩項)",
+    "optionA":"Amazon CloudFront分佈",
+    "optionB":"Amazon Route 53",
+    "optionC":"安全組",
+    "optionD":"子網路",
+    "optionE": "Elastic Load Balancing",
+    "type":"Multiple",
+    "Answer":"C、D"
   }
+  
 ] 
+
+
+
+
 
 
 
